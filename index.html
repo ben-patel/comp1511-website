@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
+<link rel="icon" href="/images/1511pic.png">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
     </style>
@@ -14,7 +15,23 @@
 <body class="body">
 
     <div class="header" id="myHeader">
-        <h3 class="header_text">linked lists vs arrays by ben</h3>
+        <h3 class="header_text"><a href="#top" style="text-decoration:none;" class="top"">linked lists vs arrays</a>
+            <span style="float:right; position: relative; bottom:1px;  right:150px; ">
+                <a href="#LL" class="header_link">
+                    linked lists
+                </a>&#8594;
+            </span>
+            
+            <span style="float:right; position: relative; bottom:1px; right:150px; ">
+                <a href="#intro" class="header_link">
+                    intro
+                </a>&#8594;
+            </span>
+            <span style="float:right; position: relative; top:2.5px; left:118px; ">
+                <a href="#ARRAY" class="header_link">
+                    arrays
+                </a>
+            </span></h3>
     </div>
     <div class="content">
     <div class="main_intro">
@@ -25,8 +42,8 @@
             blog.</h3>
         <h3>but first, a short introduction:</h3>
     </div>
-
-    <div class="main_description">
+    <div id="intro"></div>
+    <div class="main_description" >
         <h2>- What are linked lists and arrays?</h2>
         <div class="main_subtext">
             <h2>Linked lists and arrays are a type of data structure. So what's a data structure?<h2>
@@ -36,7 +53,9 @@
                                                 For example, in COMP1511's first assignment, we had to store structs called 'rooms' 
                                                 in a 'hotel' array.</h2>
         </div>
+        <div id="LL"></div>
         <br><hr><br>
+
         <h2>- Linked Lists</h2>
         <br><br>
         <div class="main_subtext_two">
@@ -83,6 +102,7 @@
                     and next node. However, I won't be covering these as they are not assessed in COMP1511.
                 </h2>
         </div>
+        <div id="ARRAY"></div>
         <br><hr><br>
 
         <h2>- Arrays</h2><br><br>
@@ -101,7 +121,7 @@
                 in an array must be of the same data type. 
             </h2>
             <h2>
-                Every element in an array has a unique index, which denotes it's position in the array. Array's are <i>zero-indexed</i>,
+                Every element in an array has a unique index, which denotes it's position in the array. Arrays are <i>zero-indexed</i>,
                 meaning that the first element of an array has index 0. The next element will have index 1, then index 2, 3, 4... etc.
             </h2>
             <h2>
@@ -128,5 +148,15 @@
 
     </div>
 </body>
+
+<script>
+    function w3_open() {
+      document.getElementById("mySidebar").style.display = "block";
+    }
+    
+    function w3_close() {
+      document.getElementById("mySidebar").style.display = "none";
+    }
+</script>
 
 </html>
