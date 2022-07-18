@@ -11,6 +11,26 @@
     position: fixed;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+.top {
+    color:rgb(48,48,48);
+}
+a:hover {
+    color:white;
+    transition: 0.5s;
+}
+
+.header_link {
+    color:rgb(58, 58, 58);
+    border: 2px solid navy;
+    border-radius: 5px;
+    padding:5px;
+    text-decoration: none;
+    margin: none;
+}
 html, body {
     margin: 0; 
     padding: 0;
@@ -28,6 +48,7 @@ html, body {
     font-weight:600;
     font-size: larger;
 }
+
 .main_intro {
     margin-top:100px;
     color:rgb(22, 21, 21);
@@ -72,6 +93,7 @@ html, body {
     font-size: 80px;
     padding:none;
     margin:none;
+
 }
 
 .array_box {
