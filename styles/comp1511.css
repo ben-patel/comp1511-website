@@ -1,1 +1,130 @@
+.header {
 
+    text-align: left;
+    background: #9ed4d8;
+    color: rgb(58, 58, 58);
+    font-size: 15px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+    border-bottom: 3px solid rgb(195, 195, 195);
+    width:100%;
+    position: fixed;
+}
+
+html, body {
+    margin: 0; 
+    padding: 0;
+}
+
+.body {
+    background-color: rgba(211, 212, 212, 0.101);
+
+}
+
+.header_text{
+    position: relative;
+    left:50px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight:600;
+    font-size: larger;
+}
+.main_intro {
+    margin-top:100px;
+    color:rgb(22, 21, 21);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-right:100px;
+}
+
+.main_description {
+    margin-top:90px;
+    color:rgb(22, 21, 21);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    margin-left: 100px;
+    margin-right:75px;
+}
+
+.main_subtext {
+    margin-top:10px;
+    color:rgb(100, 100, 100);
+    font-size: 15px;
+    margin-left: 50px;
+    margin-right:100px; 
+}
+
+.main_subtext_two {
+    margin-top:10spx;
+    color:rgb(126, 27, 27);
+    margin-left: 50px;
+    margin-right:50px; 
+    font-size: 60px;
+}
+
+.rectangle {
+    height: 120px;
+    width: 240px;
+    background-color: rgba(211, 212, 212, 0.101);
+    border: 5px solid rgb(38, 68, 158);
+    border-radius: 11px;
+    color:forestgreen;
+    font-size: 80px;
+    padding:none;
+    margin:none;
+}
+
+.array_box {
+    height: 120px;
+    width: 120px;
+    background-color: rgba(211, 212, 212, 0.101);
+    border: 5px solid rgb(38, 68, 158);
+    border-radius: 0px;
+    color:forestgreen;
+    font-size: 35px;
+    padding-left:30px;
+    padding-right:none;
+    padding-top:30px;
+    padding-bottom: none;
+    margin:0px;
+    display:inline-block; 
+}
+.list_text {
+    font-size: 24px;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.invisible {
+    font-size: 24px;
+    color:transparent; 
+}
+
+pre code {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #999;
+    border-radius: 8px;
+    display: block;
+    padding: 5px;
+    font-size: 20px;
+    font-weight:500;
+    color:black;
+  }
+
+.references {
+    margin-top: 600px;
+    text-align: center;
+}
+.content {
+    padding: 16px;
+  }
+  
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+  
+.sticky + .content {
+    padding-top: 100px;
+}
