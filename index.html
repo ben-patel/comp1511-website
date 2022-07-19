@@ -3,11 +3,11 @@
 <head>
 <title>ben's guide to linked Lists and arrays </title>
 <meta name="description" content="comp1511-lists-arrays">
-<link rel="stylesheet" href="/styles/comp1511.css">
+<link rel="stylesheet" href="comp1511.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet">
-<link rel="icon" href="/images/1511pic.png">
+<link rel="icon" href="1511pic.png">
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap');
     </style>
@@ -15,23 +15,34 @@
 <body class="body">
 
     <div class="header" id="myHeader">
-        <h3 class="header_text"><a href="#top" style="text-decoration:none;" class="top"">linked lists vs arrays</a>
-            <span style="float:right; position: relative; bottom:1px;  right:150px; ">
-                <a href="#LL" class="header_link">
+        <h3 class="header_text"><a href="#top" style="text-decoration:none;" class="top">linked lists vs arrays (by ben)</a>
+            <span style="float:right; position: relative; bottom:1px;  right:450px; ">
+                <a href="#LINKLIST" class="header_link">
                     linked lists
                 </a>&#8594;
             </span>
             
-            <span style="float:right; position: relative; bottom:1px; right:150px; ">
-                <a href="#intro" class="header_link">
+            <span style="float:right; position: relative; bottom:1px; right:450px; ">
+                <a href="#INTRO" class="header_link">
                     intro
                 </a>&#8594;
             </span>
-            <span style="float:right; position: relative; top:2.5px; left:118px; ">
+            <span style="float:right; position: relative; bottom:1px; right:160px; ">
                 <a href="#ARRAY" class="header_link">
                     arrays
+                </a>&#8594;
+            </span>
+            <span style="float:right; position: relative; bottom:1px; left:62px; ">
+                <a href="#COMPARE" class="header_link">
+                    comparison
+                </a>&#8594;
+            </span>
+            <span style="float:right; position: relative; top:1.5px; left:283px; ">
+                <a href="#PROBLEMS" class="header_link">
+                    problems
                 </a>
             </span></h3>
+        
     </div>
     <div class="content">
     <div class="main_intro">
@@ -42,7 +53,7 @@
             blog.</h3>
         <h3>but first, a short introduction:</h3>
     </div>
-    <div id="intro"></div>
+    <div id="INTRO"></div>
     <div class="main_description" >
         <h2>- What are linked lists and arrays?</h2>
         <div class="main_subtext">
@@ -53,7 +64,7 @@
                                                 For example, in COMP1511's first assignment, we had to store structs called 'rooms' 
                                                 in a 'hotel' array.</h2>
         </div>
-        <div id="LL"></div>
+        <div id="LINKLIST"></div>
         <br><hr><br>
 
         <h2>- Linked Lists</h2>
@@ -99,7 +110,8 @@
                   </pre>
                 <h2>
                     There are also some variations of a linked list, such as a doubly-linked list in which each node points to the previous 
-                    and next node. However, I won't be covering these as they are not assessed in COMP1511.
+                    and next node. However, I won't be covering these as they are not assessed in COMP1511. I'll just be covering singly-linked lists
+                    in this tutorial.
                 </h2>
         </div>
         <div id="ARRAY"></div>
@@ -125,7 +137,7 @@
                 meaning that the first element of an array has index 0. The next element will have index 1, then index 2, 3, 4... etc.
             </h2>
             <h2>
-                The most basic arrays in C are static, meaning they have a fixed length which you must define when defining an array.
+                The most basic arrays in C are static, meaning they have a fixed length which you must define when defining the array.
             </h2>
             <h2>Here is what defining and accessing an array's indexes looks like in C:</h2>
                 <pre>
@@ -138,25 +150,315 @@
                   </pre>
                 <h2>
         </div>
+        <div id="COMPARE"></div>
 
+        <br><hr><br>
+        <h2>- Comparison</h2><br>
+        <div class="main_subtext">
+            <h2>
+            I'm going to compare linked lists and arrays in 4 catergories:<br><br>
+            <small>1)</small> <a href="#SIZE" class="subject_links">Size</a>
+            <br><br><small>2)</small> <a href="#MEMOIZE" class="subject_links">Memory</a>
+            <br><br><small>3)</small> <a href="#ACCESS" class="subject_links">Access time</a>
+            <br><br><small>4)</small> <a href="#IDTIME" class="subject_links">Insertion/deletion</a>
+                <div id="SIZE"></div>
+            </h2><br><br>
+
+            <h1 style="color:black">1) Size</h1><br>
+            <div>
+                <h2>The winner for size is: Linked Lists!
+                    <br> <br>
+                    Since linked lists are formed by nodes pointing to non-contiguous adresses in memory, this means we can 
+                    easily change the size during <a href="https://en.wikipedia.org/wiki/Runtime_(program_lifecycle_phase)">runtime</a> (by just 
+                    changing some pointers) without causing any data losses.
+                    <br><br>
+                    However, since arrays are contiguous in memory, we can't easily change the size, and it is impossible to change the size during runtime.
+                    To change the size of an array, we must use dynamic memory allocation using <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;" >
+                        malloc</span> and <span style="font-family:'Courier New', Courier, monospace; font-size: 20px;" >
+                        realloc</span>.<br><br>
+                        Here's an example program that creates a dynamic array, then changes its size:
+
+                    <pre>
+                        <code>
+    <span style="color:rgb(182, 0, 0)">#include</span> <span style="color:forestgreen">&lt;stdio.h&gt;</span>
+    <span style="color:rgb(182, 0, 0)">#include</span> <span style="color:forestgreen">&lt;stdlib.h&gt;</span>
+                                
+    <span style="color:rgb(57, 1, 225)">int</span> main() {
+
+        <span style="color:rgb(57, 1, 225)">int</span> *array;
+        <span style="color:rgb(57, 1, 225)">int</span> size_one;
+        <span style="color:rgb(182, 0, 0)">printf</span>(<span style="color:rgb(182, 0, 0)">"</span>Enter size: <span style="color:rgb(182, 0, 0)">"</span>);
+        <span style="color:rgb(182, 0, 0)">scanf</span>("%d", &size_one);
+                                
+        <span style="color:forestgreen">// allocates memory for array</span>
+        array = <span style="color:rgb(182, 0, 0)">malloc</span>(size_one * sizeof(<span style="color:rgb(57, 1, 225)">int</span>));
+                                
+        <span style="color:rgb(182, 0, 0)">printf</span>(<span style="color:rgb(182, 0, 0)">"</span>Addresses of previously allocated memory:<span style="color:rgb(0, 114, 4)">\n</span><span style="color:rgb(182, 0, 0)">"</span>);
+        <span style="color:rgb(57, 1, 225)">int</span> i = 0;
+        while (i < size_one) {
+            <span style="color:rgb(182, 0, 0)">printf</span>(<span style="color:rgb(182, 0, 0)">"</span>%p<span style="color:rgb(0, 114, 4)">\n</span><span style="color:rgb(182, 0, 0)">"</span>, array + i);
+            i++;
+        }
+                                  
+        <span style="color:rgb(182, 0, 0)">printf</span>(<span style="color:rgb(182, 0, 0)">"</span><span style="color:rgb(0, 114, 4)">\n</span>Enter the new size: <span style="color:rgb(182, 0, 0)">"</span>);
+        <span style="color:rgb(57, 1, 225)">int</span> size_two;
+        <span style="color:rgb(182, 0, 0)">scanf</span>("%d", &size_two);
+                                
+        <span style="color:forestgreen">// reallocating memory</span>
+        array = <span style="color:rgb(182, 0, 0)">realloc</span>(array, size_two * sizeof(<span style="color:rgb(57, 1, 225)">int</span>));
+                                
+        <span style="color:rgb(182, 0, 0)">printf</span>(<span style="color:rgb(182, 0, 0)">"</span>Addresses of newly allocated memory:<span style="color:rgb(0, 114, 4)">\n</span><span style="color:rgb(182, 0, 0)">"</span>);
+        i = 0;
+        while (i < size_two) {
+            <span style="color:rgb(182, 0, 0)">printf</span>(<span style="color:rgb(182, 0, 0)">"</span>%p<span style="color:rgb(0, 114, 4)">\n</span><span style="color:rgb(182, 0, 0)">"</span>, array + i);
+            i++;
+        }
+
+        <span style="color:rgb(182, 0, 0)">free</span>(array);
+                                
+        <span style="color:rgb(182, 0, 0)">return</span> 0;
+        
+    }
+                        </code>
+    <code>
+    Output:
+
+        Enter size: 3
+        Addresses of previously allocated memory:
+        0x556d2021fac0c
+        0x556d2021fac4c
+        0x556d2021fac8c
+
+        Enter the new size: 5
+        Addresses of newly allocated memory:
+        0x556d2021fac0c
+        0x556d2021fac4c
+        0x556d2021fac8c
+        0x556d2021faccc
+        0x556d2021fad0c
+    </code>
+    <div id="MEMOIZE"></div>
+                    </pre>
+
+                </h2>
+
+            </div>
+        
+            </h2>
+
+            <h1 style="color:black">2) Memory</h1><br>
+            <div >
+                <h2>The winner for memory is: Arrays!
+                    <br><br>
+                    Arrays only take up memory from their elements. For example, if we had an array of five 32 bit integers, the total
+                    memory used by that array would be 5x32 = 160 bytes. <br><br>
+                    Linked lists have nodes that are composed of a data type which the list stores, and pointers. (Note that pointers can take up to 8 bytes depending on the system being used) Since each node contains
+                    both a pointer and another data type, each node in a list takes up more memory than each element in an array.
+                </h2>
+                <div id="ACCESS"></div>
+            </div><br><br>
+
+
+        </h2><br><br>
+
+        <h1 style="color:black">3) Access time</h1><br>
+        <div>
+            <h2>The winner for accesss time is: Arrays!<br>
+            <br>It is a lot quicker to access a certain index in an array than in a linked list. Because you can easily access any element 
+            at a given index in an array, it makes it alot faster than doing the same in linked lists. In linked lists, 
+            you must traverse from the head node thorugh each node until you reach the index you were looking for. Since you have go through every
+            node before the target node, it makes the access time a lot slower.<br><br>
+            Another way to explain this is through <a href="https://en.wikipedia.org/wiki/Time_complexity">time complexity</a>. Simply put, time complexity is how much the 
+            time taken to run a program scales with the input size. I won't go too deep into this as this isn't assessed in COMP1511, however some people may find it interesting.
+            <br><br>
+            Constant time, or O(1)  in big O notation, means a program will always take the same amount of time to run no matter how big or 
+            small the input to that program is. Linear time, or O(N), means a programs running time will scale proportionally by a constant factor (greater than 0) 
+            to the input. There are infinitely many other time complexities such as O(logN) and O(N&#178;) which I won't cover for now.
+            <br><br>
+            Now, how does time complexity relate to access time for arrays and linked lists? The time complexity of access time for arrays
+            is O(1), meaning that no matter how large an array is, its always going to take the same amount of time to access a certain index in that array. However,
+            in linked lists, the access time is O(N). This is because, like we explained before, you have to traverse through every node before a certain index to acess that index.
+            Therefore, as the linked list gets bigger, to acesss a certain node, its youre going to have to traverse through more and more nodes. Obviously its going to take a lot longer to 
+            access the last node than the first, but we say the overall time complexity is O(n). 
+            <br><br>
+            Here's a comparison between lookup operations in code:
+            <pre>
+                <code>
+    <span style="color:rgb(57, 1, 225)">int</span> index = 4;
+
+    <span style="color:rgb(57, 1, 225)">int</span> element;
+
+    <span style="color:forestgreen;">//accessing index 4 in array </span>
+    element = array[index];
+
+    <span style="color:forestgreen;">//accessing index 4 in linked list</span>
+    <span style="color:rgb(57, 1, 225)">int</span> i = 0;
+    <span style="color:rgb(182, 0, 0)">struct</span> node *current = list_head;
+
+    while (i < index && current != <span style="color:rgb(182, 0, 0)">NULL</span>) {
+        current = current->next;
+        i++;
+    }
+
+    element = current->data;
+                </code>
+                <div id="IDTIME"></div>
+            </pre>
+
+        </h2>
+        </div>
+
+    </h2><br><br>
+
+    <h1 style="color:black">4) Insertion/deletion</h1><br>
+        <div>
+            <h2>
+                The winner for insertion and deletion is: Linked Lists!<br><br>
+                It is much easier to insert and delete elements in a linked list than in an array. It is much faster for linked lists
+                because all you need to do to insert/delete is change where some pointers are pointing towards. For example, if you wanted
+                to insert a node at the end of a list, all you need to do is traverse the list to the last node then change the last node's 
+                next pointer to the new node to be inserted. <br><br>
+                However, to insert/delete elements in an array, you have to create a new array with a new length and copy the data from the old array into the new 
+                array.
+                <br><br>
+                Here are some examples of code insertion/deletion with linked lists:<br>
+            </h2>
+            <div style="text-align:center;">
+            <h2 style="color:black;">Insertion at end:</h2><button id="toggle" class="code_button" onclick="myFunction()" value="Show code">Show code</button>
+            <div id="content">
+                <br><br>
+                <img src="code1.png" alt="broken - supposed to show code." class="images">
+            </div>
+            
+            </div>
+            <div style="text-align:center;">
+                <h2 style="color:black;">Insertion at index:</h2><button id="toggle1" class="code_button" onclick="myFunction1()" value="Show code">Show code</button>
+            <div id="content1">
+                <br><br>
+                <img src="code2.png" alt="broken - supposed to show code." class="images">
+            </div>
+            </div>
+
+            <div style="text-align:center;">
+            <h2 style="color:black;">Deletion at index:</h2><button id="toggle2" class="code_button" onclick="myFunction2()" value="Show code">Show code</button>
+            <div id="content2" class="transition">
+                <br><br>
+                <img src="code3.png" alt="broken - supposed to show code." class="images">
+            </div>
+            </div>
+        </div>
+        <div id="PROBLEMS"></div>
+        </div> 
+        <br><hr><br>
+        <h2>- Problems</h2><br>
+        <div class="main_subtext">
+            <h2>
+                Great! Now we know all this stuff, but whats the point of knowing it if we can't use it?<br><br>
+                Heres a couple places you can find some problems. Leetcode will generally tend to have more difficult problems than hackerrank, and note that you can sort by difficulty!<br>
+                <br>
+                It's probably best to start off with the easiest problems, depending on how confident you feel with lists and arrays.
+
+            </h2>
+            <h3>Note: I have no clue what the level of difficulty they will give us in COMP1511, so only try out some of these
+                problems for your own interest.</h3>
+
+            <h2 class="links"><br><br>
+                <a class="links" href="https://leetcode.com/tag/linked-list/"> Linked Lists - LeetCode</a><br><br>
+                <a class="links" href="https://leetcode.com/tag/array/">Arrays - LeetCode</a><br><br>
+                <a class="links" href="https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=linked-lists">Linked Lists - HackerRank</a><br><br>
+                <a class="links" href="https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=arrays">Arrays - HackerRank</a><br><br>
+            </h2>
+        </div>
+        <br><br>
+        <hr>
+        <br><br>
+        <div>
+            <h3>
+                And that's it! Hopefully you were able to learn something new. If you want to see the source code for this website, its should be available here on my 
+                <a href="">github.</a>
+            </h3>
+        </div>
     </div>
+    
 
     <div class="references">
         <h3>references:</h3>
-        <a href="https://en.wikipedia.org/wiki/Data_structure">Data Structures - Wikipedia</a>
+        <a href="https://en.wikipedia.org/wiki/Data_structure">Data Structures - Wikipedia</a><br>
+        <a href="https://en.wikipedia.org/wiki/Runtime_(program_lifecycle_phase)">Runtime - Wikipedia</a><br>
+        <a href="https://www.programiz.com/c-programming/c-dynamic-memory-allocation">Dynamic memory allocation - Programiz</a>
     </div> 
 
     </div>
 </body>
 
 <script>
-    function w3_open() {
-      document.getElementById("mySidebar").style.display = "block";
+
+    var toggle  = document.getElementById("toggle");
+    var content = document.getElementById("content");
+
+    toggle.addEventListener("click", function() {
+    content.style.display = (content.dataset.toggled ^= 1) ? "block" : "none";
+    });
+
+    var toggle1  = document.getElementById("toggle1");
+    var content1 = document.getElementById("content1");
+
+    toggle1.addEventListener("click", function() {
+    content1.style.display = (content1.dataset.toggled ^= 1) ? "block" : "none";
+    });
+
+    var toggle2  = document.getElementById("toggle2");
+    var content2 = document.getElementById("content2");
+
+    toggle2.addEventListener("click", function() {
+    content2.style.display = (content2.dataset.toggled ^= 1) ? "block" : "none";
+    });
+
+    function myFunction() {
+
+        var btn = document.getElementById("toggle");
+
+        if (btn.value == "Show code") {
+            btn.value = "Hide code";
+            btn.innerHTML = "Hide code";
+        }
+        else {
+            btn.value = "Show code";
+            btn.innerHTML = "Show code";
+        }
+
+    }  
+    function myFunction1() {
+
+    var btn2 = document.getElementById("toggle1");
+
+    if (btn2.value == "Show code") {
+        btn2.value = "Hide code";
+        btn2.innerHTML = "Hide code";
     }
-    
-    function w3_close() {
-      document.getElementById("mySidebar").style.display = "none";
+    else {
+        btn2.value = "Show code";
+        btn2.innerHTML = "Show code";
     }
+
+    }   
+
+    function myFunction2() {
+
+    var btn1 = document.getElementById("toggle2");
+
+    if (btn1.value == "Show code") {
+        btn1.value = "Hide code";
+        btn1.innerHTML = "Hide code";
+    }
+    else {
+        btn1.value = "Show code";
+        btn1.innerHTML = "Show code";
+    }
+
+    } 
+
+
 </script>
 
 </html>
