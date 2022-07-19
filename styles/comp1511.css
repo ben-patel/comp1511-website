@@ -19,8 +19,8 @@ html {
     color:rgb(48,48,48);
 }
 a:hover {
-    color:white;
-    transition: 0.5s;
+    color:rgb(7, 146, 33);
+    transition: 0.1s;
 }
 
 .header_link {
@@ -117,6 +117,12 @@ html, body {
     margin-right: 25px;
 }
 
+.subject_links {
+    text-decoration: underline;
+    color:#000000;
+
+}
+
 .invisible {
     font-size: 24px;
     color:transparent; 
@@ -128,13 +134,13 @@ pre code {
     border-radius: 8px;
     display: block;
     padding: 5px;
-    font-size: 20px;
+    font-size: 15px;
     font-weight:500;
     color:black;
   }
 
 .references {
-    margin-top: 600px;
+    margin-top: 100px;
     text-align: center;
 }
 .content {
@@ -149,4 +155,40 @@ pre code {
   
 .sticky + .content {
     padding-top: 100px;
+}
+
+#content{
+    display:none;
+}
+
+#content1 {
+    display: none;
+}
+
+#content2 {
+    display:none;
+}
+
+.links {
+    color:rgb(0, 125, 228);
+}
+.images {
+    border: 2px solid rgb(171, 171, 171);
+    border-radius: 8px;
+}
+
+.code_button {
+    background: none;
+    border-radius: 4px;
+    width:100px;
+    height:40px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    background-color: aliceblue;
+}
+
+button:hover {
+    background-color: #9ed4d8;
+    cursor: pointer;
 }
