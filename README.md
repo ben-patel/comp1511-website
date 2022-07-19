@@ -4,4 +4,4 @@ Contains HTML + CSS files for ben's very very basic COMP1511 Linked List and Arr
 
 
 
-<img src="https://user-images.githubusercontent.com/97421407/179744317-4b478cb1-c4fb-4363-a616-ac26add0cb09.png" width="300">
+<img src="https://user-images.githubusercontent.com/97421407/179744317-4b478cb1-c4fb-4363-a616-ac26add0cb09.png" width="150">
