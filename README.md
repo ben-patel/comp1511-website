@@ -1,6 +1,6 @@
 # COMP1511 Linked Lists/Arrays Website
 
-Contains HTML + CSS files for ben's very very basic COMP1511 Linked List and Arrays blog. The website was made using HTML5 + CSS + Vanilla JavaScript. 
+Contains files for ben's very very basic COMP1511 Linked List and Arrays blog. The website was made using HTML5 + CSS + Vanilla JavaScript. 
 
 
 
